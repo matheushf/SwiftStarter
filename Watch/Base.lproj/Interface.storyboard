@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="TkZ-5V-M01">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
+    </dependencies>
+    <scenes>
+        <!--Flight-->
+        <scene sceneID="S5t-Rb-1Hl">
+            <objects>
+                <controller identifier="Flight" hidesWhenLoading="NO" id="TkZ-5V-M01">
+                    <items>
+                        <group width="1" alignment="left" id="xpp-lg-9dz">
+                            <items>
+                                <imageView width="40" height="40" alignment="left" image="Logo" id="wXD-o5-hZQ">
+                                    <color key="tintColor" red="0.98039215686274506" green="0.066666666666666666" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                </imageView>
+                                <group alignment="left" layout="vertical" spacing="0.0" id="djh-s0-LJS">
+                                    <items>
+                                        <label alignment="left" text="Flight 123" id="xQn-9i-oGh">
+                                            <color key="textColor" red="0.98039215686274506" green="0.066666666666666666" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
+                                        <label alignment="left" text="MEL to SFO" id="VlT-NT-qWM"/>
+                                    </items>
+                                </group>
+                            </items>
+                            <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" spacing="0.0" id="tuy-9X-VIC">
+                            <items>
+                                <label alignment="left" text="AA123 Boards" id="zYf-Fc-pdu"/>
+                                <label height="44" alignment="left" text="15:06" id="UNo-b4-Xhm">
+                                    <color key="textColor" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="font" type="system" pointSize="54"/>
+                                </label>
+                                <label alignment="left" text="On time" id="pcC-xK-dFw">
+                                    <color key="textColor" red="0.015686274509803921" green="0.87058823529411766" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </label>
+                                <group width="1" alignment="left" id="bPO-7P-uhP">
+                                    <items>
+                                        <label alignment="left" text="Gate 1A" id="Qvd-4C-UKx"/>
+                                        <label alignment="right" text="Seat 64A" id="sgW-X8-3eO"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="34" y="103"/>
+        </scene>
+    </scenes>
+</document>
