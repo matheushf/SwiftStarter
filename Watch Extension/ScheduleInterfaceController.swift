@@ -12,6 +12,7 @@ import Foundation
 
 class ScheduleInterfaceController: WKInterfaceController {
 
+  
     @IBOutlet var flightsTable: WKInterfaceTable!
  
   var flights = Flight.allFlights()
