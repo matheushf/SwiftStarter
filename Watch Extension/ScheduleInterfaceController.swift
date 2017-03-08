@@ -16,6 +16,7 @@ class ScheduleInterfaceController: WKInterfaceController {
     @IBOutlet var flightsTable: WKInterfaceTable!
  
   var flights = Flight.allFlights()
+  var selectedIndex = 0
   
   override func awake(withContext context: Any?) {
     super.awake(withContext: context)
@@ -27,6 +28,15 @@ class ScheduleInterfaceController: WKInterfaceController {
       controller.flight = flights[index]
     }
   }
+  
+  override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+    let flight = flights[rowIndex]
+    let controllers = ["Flight", "CheckIn"]
+    presentController(withNames: controllers, contexts: [flight, flight])
+    selectedIndex = rowIndex
+  }
+  
+  
 
 }
 
