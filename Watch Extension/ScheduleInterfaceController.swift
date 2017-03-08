@@ -29,6 +29,20 @@ class ScheduleInterfaceController: WKInterfaceController {
     }
   }
   
+  override func didAppear() {
+    super.didAppear()
+    
+    guard flights[selectedIndex].checkedIn,
+      let controller = flightsTable.rowController(at: selectedIndex) as? FlightRowController else {
+        return
+    }
+    
+    animate(withDuration: 0.35) {
+      controller.updateForCheckIn()
+    }
+    
+  }
+  
   override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
     let flight = flights[rowIndex]
     let controllers = ["Flight", "CheckIn"]
