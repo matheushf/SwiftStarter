@@ -38,14 +38,14 @@ class ScheduleInterfaceController: WKInterfaceController {
     }
     
     animate(withDuration: 0.35) {
-      controller.updateForCheckIn()
+      //controller.updateForCheckIn()
     }
     
   }
   
   override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
     let flight = flights[rowIndex]
-    let controllers = ["Flight", "CheckIn"]
+    let controllers = flight.checkedIn ? ["Flight", "BoardingPass"] : ["Flight", "CheckIn"]
     presentController(withNames: controllers, contexts: [flight, flight])
     selectedIndex = rowIndex
   }

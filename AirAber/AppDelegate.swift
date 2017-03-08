@@ -21,13 +21,49 @@
  */
 
 import UIKit
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
+  
+  var session: WCSession? {
+    didSet {
+      if let session = session {
+        session.delegate = self
+        session.activate()
+      }
+    }
+  }
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    if WCSession.isSupported() {
+      session = WCSession.default()
+      session?.delegate = self
+      session?.activate()
+    }
+    
     return true
   }
+}
+
+extension AppDelegate: WCSessionDelegate {
+  
+  func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {}
+  
+  func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
+    if let reference = message["reference"] as? String, let boardingPass = QRCode(reference) {
+      
+      if WCSession.default().isReachable {
+          replyHandler(["boardingPassData": boardingPass.PNGData as AnyObject])
+      }
+      
+    }
+  }
+  
+  func sessionDidBecomeInactive(_ session: WCSession) {}
+  
+  func sessionDidDeactivate(_ session: WCSession) {}
+  
 }
